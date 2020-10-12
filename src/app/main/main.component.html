@@ -1,0 +1,37 @@
+<div class="container py-3">
+  <div class="py-2" *ngIf="goods">
+    <h3>Lastly added Goods: </h3>
+  </div>
+
+  <div class="row" *ngIf="!goods">There is no any good in the Catalog</div>
+
+
+  <div class="row border-0 shadow-lg align-items-center p-md-2" *ngIf="goods" style="border-radius: 20px">
+
+
+    <div class="col-md-3 mb-5" *ngFor="let good of goods; index as i">
+
+      <div class="card border-0 shadow">
+        <div class="embed-responsive embed-responsive-4by3">
+        <a href="/catalog/view/{{good.id}}" title="{{good.name}}">
+          <img src="{{good.picURL}}" class="card-img-top embed-responsive-item" alt="...">
+        </a>
+        </div>
+        <div class="card-body text-center m-0 p-1">
+          <h4 class="card-title mb-0">{{good.name}}</h4>
+          <span><b>Created:</b> {{good.date|date:'dd-MM-yyyy'}}</span>
+          <a data-toggle="tooltip" title="Delete Item"  class="Delete-pic btn btn-danger btn-circle float-right" href="/catalog/delete/{{good.id}}">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+          <a data-toggle="tooltip" title="Edit Item" class="Edit-thumb btn btn-primary btn-circle float-right" href="/catalog/edit/{{good.id}}">
+            <i class="fas fa-edit"></i>
+          </a>
+
+        </div>
+      </div>
+
+
+</div>
+  </div>
+</div>
+

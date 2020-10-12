@@ -1,0 +1,204 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<ngb-carousel #carousel [interval]="4000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let img of images; index as i">
+    <div class="carousel-caption">
+      <h3>{{titles[i]}}</h3>
+    </div>
+    <!--    <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">-->
+    <div class="picsum-img-wrapper">
+      <img [src]="img" alt="My image {{i + 1}} description" @carouselAnimation>
+    </div>
+    <!--    </a>-->
+  </ng-template>
+</ngb-carousel>
+
+<!--<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">-->
+<!--  <a class="navbar-brand" href="#"><span style="font-family:'Copperplate Gothic'; font-weight:bold; color:antiquewhite">Shop</span></a>-->
+
+<!--  <div class="collapse navbar-collapse" id="navbarColor02">-->
+
+<!--  <ul ngbNav #nav="ngbNav"  class="nav-pills bg-dark sticky-top text-white" >-->
+<!--    <li [ngbNavItem]="1">-->
+<!--      <a ngbNavLink routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>-->
+<!--    </li>-->
+<!--    <li [ngbNavItem]="2">-->
+<!--      <a ngbNavLink routerLink="/catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Catalog</a>-->
+<!--    </li>-->
+<!--    <li [ngbNavItem]="3" class="ml-auto">-->
+<!--      <a ngbNavLink routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">About</a>-->
+<!--    </li>-->
+<!--    <li [ngbNavItem]="4" class="ml-1">-->
+<!--      <a ngbNavLink routerLink="/contacts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Contacts</a>-->
+<!--    </li>-->
+<!--  </ul>-->
+
+<!--</div>-->
+<!--</nav>-->
+<nav class="navbar navbar-expand-sm bg-dark sticky-top navbar-dark">
+
+  <!-- Links -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link"routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Catalog</a>
+    </li>
+  </ul>
+    <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/contacts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Contacts</a>
+    </li>
+  </ul>
+
+</nav>
+
+
+
+<!--<app-header></app-header>-->
+<div class="mycontainer" >
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+<!--<app-footer></app-footer>-->
+
+<!-- Footer -->
+<footer class="font-small  bg-dark fixed-bottom " style="color: lightgray">
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Our Shop</h5>
+        <p style="color: lightblue">Here you can browse all our content and choose what do you want. Our shop sells top mobile phones for everyday needs. We have many Choices for You!</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3"/>
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Products</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/catalog">Catalog</a>
+          </li>
+          <li>
+            <a href="#!">Mobile Phones</a>
+          </li>
+          <li>
+            <a href="#!">Mobile Sound</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Contact</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!"><i class="fas fa-home text-white-50 mr-1"></i>Odessa, Mystreet 7686, UK</a>
+          </li>
+          <li>
+            <a href="#!"><i class="fas fa-envelope-open text-white-50 mr-1"></i>info@angularshop.com</a>
+          </li>
+          <li>
+            <a href="#!"><i class="fas fa-mobile-alt text-white-50 mr-1"></i>+38 0974412080</a>
+          </li>
+          <li>
+            <a href="#!"><i class="fas fa-mobile-alt text-white-50 mr-1"></i>+38 0991458001</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row">
+      <div class="text-left">© 2020 Copyright:
+        <a href="https://angular.io/"> Angular.io</a>
+      </div>
+      <!-- Grid column -->
+      <div class="col-md-12 text-center">
+
+        <div class="mb-1 flex-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+

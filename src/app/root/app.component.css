@@ -1,0 +1,27 @@
+.picsum-img-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+div.mycontainer{
+  min-height: 100%;
+  width: 90%;
+  padding-bottom: 210px;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+router-outlet,
+footer{
+  display: table-row;
+}
+
+
+router-outlet {
+  position: absolute;
+}
+
+footer {
+  height: 210px;
+}

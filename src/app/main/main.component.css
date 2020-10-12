@@ -1,0 +1,4 @@
+.embed-responsive .card-img-top {
+  object-fit: cover;
+  height: 100%!important;
+}

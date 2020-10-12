@@ -1,0 +1,28 @@
+<div class="container py-3">
+
+  <div class="row" *ngIf="gooditem">
+
+    <div class="col-md-6 mb-5 mr-auto ml-auto">
+      <div class="card border-0 shadow ">
+<div class="embed-responsive embed-responsive-4by3">
+        <a href="{{gooditem.picURL}}"  title="{{gooditem.name}}">
+          <img src="{{gooditem.picURL}}" class="card-img-top embed-responsive-item" alt="...">
+        </a>
+</div>
+        <div class="card-body m-0 p-3">
+          <h3 class="card-title mb-0"><i>Name:</i> {{gooditem.name}}</h3>
+          <h6><i>Description:</i> {{gooditem.description}}</h6>
+          <h4><i>Price:</i> {{gooditem.price|currency: 'USD':'symbol-narrow':'1.2-2'}}</h4>
+          <h4 [ngSwitch]="gooditem.categoryId">
+            <ng-template ngSwitchCase="1"><i>Category:</i> {{categories[0].name}}</ng-template>
+            <ng-template ngSwitchCase="2"><i>Category:</i> {{categories[1].name}}</ng-template>
+            <ng-template ngSwitchDefault><i>Category:</i> Unknown</ng-template>
+             </h4>
+        </div>
+        <span class="float-right card-footer"><b>Added:</b> {{gooditem.date|date:'medium'}}</span>
+      </div>
+    </div>
+  </div>
+<button routerLink="/catalog" class="btn btn-block btn-primary">Back to Catalog</button>
+</div>
+

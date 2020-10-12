@@ -1,0 +1,86 @@
+<div class="container py-3">
+<div class="row">
+  <div class="float-left text-center">
+    <span class="text-primary font-weight-bold">Choose category:</span><br>
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.active]="curcategory === 0 ?">
+        <button class="page-link" (click)="setCategory(0)">All</button>
+      </li>
+      <li *ngFor="let cat of categories" class="page-item" [class.active]="cat.id == curcategory ?">
+          <button class="page-link" (click)="setCategory(cat.id)">{{cat.name}}</button>
+      </li>
+    </ul>
+
+  </div>
+
+
+  <div class="bg-primary text-white py-3 col-3 mb-3 mr-auto ml-auto" style="border-radius: 15px">
+    <label>Create new Item: </label>
+    <button class="btn btn-lg btn-warning ml-3" routerLink="/catalog/create"> Create </button>
+
+  </div>
+  <div><span class="text-primary font-weight-bold">Set items per page:</span><br>
+    <ul class="pagination justify-content-center float-right">
+
+      <li class="page-item" [class.active]="pageSize == 6">
+        <button class="page-link" (click)="setpageSize(6)" >6</button>
+      </li>
+      <li class="page-item" [class.active]="pageSize == 9">
+        <button class="page-link" (click)="setpageSize(9)" >9</button>
+      </li>
+      <li class="page-item" [class.active]="pageSize == 12">
+        <button class="page-link" (click)="setpageSize(12)" >12</button>
+      </li>
+      <li class="page-item" [class.active]="pageSize == 15">
+        <button class="page-link" (click)="setpageSize(15)" >15</button>
+      </li>
+
+    </ul>
+  </div>
+
+</div>
+
+
+  <div class="row" *ngIf="!goods">There is no any good in the Catalog</div>
+
+<div *ngIf="goods">
+  <div class="row" >
+
+    <div class="col-md-4 mb-5" *ngFor="let good of goods | category:curcategory | slice : (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <div class="card border-0 shadow">
+          <div class="embed-responsive embed-responsive-4by3">
+            <a href="/catalog/view/{{good.id}}"  title="{{good.name}}">
+                <img src="{{good.picURL}}" class="card-img-top embed-responsive-item" alt="...">
+            </a>
+          </div>
+            <div class="card-body text-center m-0 p-1">
+                <h5 class="card-title mb-0">{{good.name}}</h5>
+              <span><b>Created:</b> {{good.date|date:'dd-MM-yyyy'}}</span>
+    <a data-toggle="tooltip" title="Delete Item"  class="Delete-pic btn btn-danger btn-circle float-right" href="/catalog/delete/{{good.id}}">
+      <i class="fas fa-trash-alt"></i>
+    </a>
+              <a data-toggle="tooltip" title="Edit Item" class="Edit-thumb btn btn-primary btn-circle float-right" href="/catalog/edit/{{good.id}}">
+                <i class="fas fa-edit"></i>
+              </a>
+
+    </div>
+</div>
+
+
+</div>
+
+  </div>
+  <ngb-pagination class="d-flex justify-content-center"
+                          [(page)]="page"
+                          [pageSize]="pageSize"
+                  [maxSize]="5"
+                  [rotate]="true"
+                  [boundaryLinks]="true"
+                          [collectionSize]="getCollectionSize()"></ngb-pagination>
+</div>
+  <div>
+<!--    <ngb-pagination class="d-flex justify-content-end" [collectionSize]="colsize" [(page)]="page" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>-->
+
+
+  </div>
+</div>

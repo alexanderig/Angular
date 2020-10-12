@@ -1,0 +1,51 @@
+<div class="container py-3">
+
+  <div class="row" *ngIf="gooditem">
+
+    <div class="col-md-6 mb-5 mr-auto ml-auto">
+      <div class="card border-0 shadow ">
+        <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" multiple accept="image/*" style="display:none;">
+        <img [src]="gooditem.picURL" class="card-img-top img-thumbnail" alt="...">
+        <button type="button" class="btn btn-success" (click)="file.click()">Upload File Image</button>
+        <div class="col-md-6">
+    <span class="upload" *ngIf="progress > 0">
+      {{progress}}%
+    </span>
+          <span class="upload" *ngIf="message">
+      {{message}}
+    </span>
+        </div>
+        <div class="card-body m-2 ">
+          <div class="input-group mb-1">
+            <label class="col-3 card-title h4">Name: </label><input type="text" class="col-8" style="max-width: 100%" [(ngModel)]="gooditem.name">
+          </div>
+          <div class="input-group mb-1">
+            <label class="col-3 h5">Info: </label><textarea class="col-8" style="max-width: 100%; min-height: 100px" [(ngModel)]="gooditem.description"></textarea>
+          </div>
+          <div class="input-group mb-1">
+          <label class="col-3 h5">Price: </label><input type="number" class="col-8" style="max-width: 100%" [(ngModel)]="gooditem.price">
+        </div>
+          <div class="input-group">
+            <label class="col-3 h5">Category: </label>
+            <div>
+              <select [(ngModel)]="gooditem.categoryId" class="col-8" style="max-width: 100%">
+              <option *ngFor="let cat of categories" [ngValue]="cat.id" >{{cat.name}}</option>
+              </select>
+            </div>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <div class="text-center mb-4" *ngIf="gooditem">
+
+    <button (click)="oncreate()" class="btn btn-success">Create item</button>
+  </div>
+  <button #butback routerLink="/catalog" class="btn btn-block btn-primary">Bring me Back</button>
+</div>
+
